@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <string name="fa_dollar_sign" translatable="false">&#xf155;</string>
+  <string name="fa_wallet" translatable="false">&#xf555;</string>
+  <string name="fa_map_marked_alt" translatable="false">&#xf5a0;</string>
+  <string name="fa_tag" translatable="false">&#xf02b;</string>
+  <string name="fa_envelope" translatable="false">&#xf0e0;</string>
+  <string name="fa_cog" translatable="false">&#xf013;</string>
+
+
+</resources>
