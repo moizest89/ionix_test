@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.moizest89.ionix_test.R
 import com.moizest89.ionix_test.framework.setMask
+import com.moizest89.ionix_test.presentation.dialog.ProgressDialog
 import kotlinx.android.synthetic.main.activity_main.*
 
 

@@ -11,4 +11,6 @@
 
     <string name="dialog_title">Configuracion</string>
     <string name="dialog_message">Por favor, ingresa tu numero de RUT</string>
+    <string name="dialog_progress_message">Espere por favor...</string>
+
 </resources>
