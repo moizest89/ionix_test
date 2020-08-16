@@ -9,4 +9,6 @@
     <string name="messages_label">Mensajes [0]</string>
     <string name="config_label">Configuracion</string>
 
+    <string name="dialog_title">Configuracion</string>
+    <string name="dialog_message">Por favor, ingresa tu numero de RUT</string>
 </resources>
