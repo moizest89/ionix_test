@@ -3,4 +3,7 @@
     <color name="colorPrimary">#1c9dde</color>
     <color name="colorPrimaryDark">#006fac</color>
     <color name="colorAccent">#03DAC5</color>
+
+    <color name="card_items">#CCC5CCD4</color>
+    <color name="card_text_color">#333437</color>
 </resources>

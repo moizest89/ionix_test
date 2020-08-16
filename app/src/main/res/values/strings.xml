@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Ionix Test</string>
+
+    <string name="pay_label">Pago Facil</string>
+    <string name="station_services_label">Estaciones</string>
+    <string name="route_label">Mi Ruta</string>
+    <string name="wallet_label">Billetera</string>
+    <string name="benefits_label">Benficios</string>
+    <string name="messages_label">Mensajes [0]</string>
+    <string name="config_label">Configuracion</string>
+
 </resources>
