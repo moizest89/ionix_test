@@ -1,0 +1,60 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.1"
+
+    defaultConfig {
+        applicationId "com.moizest89.ionix_test"
+        minSdkVersion 23
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    //Android SDK
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "androidx.appcompat:appcompat:$rootProject.ext.APP_COMPAT"
+    implementation "androidx.core:core-ktx:$rootProject.ext.CORE_KTX"
+    implementation "com.google.android.material:material:$rootProject.ext.MATERIAL"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.ext.CONSTRAINT_LAYOUT"
+    implementation "androidx.constraintlayout:constraintlayout-solver:$rootProject.ext.CONSTRAINT_LAYOUT"
+    implementation "androidx.navigation:navigation-fragment-ktx:$rootProject.ext.NAVIGATION.FRAGMENT_KTX"
+    implementation "androidx.navigation:navigation-ui-ktx:$rootProject.ext.NAVIGATION.UI_KTX"
+    implementation "androidx.navigation:navigation-fragment:$rootProject.ext.NAVIGATION.FRAGMENT"
+    implementation "androidx.navigation:navigation-ui:$rootProject.ext.NAVIGATION.UI"
+    implementation "androidx.legacy:legacy-support-v4:$rootProject.ext.LEGACY_SUPPORT"
+    implementation "androidx.legacy:legacy-support-v13:$rootProject.ext.LEGACY_SUPPORT"
+
+    //Third libraries
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    implementation "de.hdodenhof:circleimageview:$rootProject.ext.CIRCLE_IMAGEVIEW"
+
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.ext.RETROFIT_VERSION"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.ext.RETROFIT_VERSION"
+    implementation "com.google.code.gson:gson:$rootProject.ext.GSON"
+
+    //Testing
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+}
