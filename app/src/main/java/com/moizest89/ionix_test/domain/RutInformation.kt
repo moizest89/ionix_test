@@ -18,7 +18,7 @@ data class RutInformationResponse(
 @Parcelize
 data class Result(
     @SerializedName("items")
-    var items: List<Item>? = listOf()
+    var items: MutableList<Item> = mutableListOf()
 ): Parcelable
 
 @Parcelize

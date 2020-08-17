@@ -1,7 +1,8 @@
 package com.moizest89.ionix_test
 
 import android.app.Application
-import com.moizest89.ionix_test.data.sandbox.SandboxRepository
+import com.moizest89.ionix_test.data.repository.SandboxRepository
+import com.moizest89.ionix_test.data.services.ApiService
 import com.moizest89.ionix_test.presentation.main.MainViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -25,7 +26,8 @@ class IonixApplication : Application() {
 
     private val applicationModule = module {
 
-        single { SandboxRepository( androidContext() ) }
+        single { ApiService() }
+        single { SandboxRepository( androidContext() , get() ) }
         //ViewModels
         viewModel { MainViewModel( get() ) }
 

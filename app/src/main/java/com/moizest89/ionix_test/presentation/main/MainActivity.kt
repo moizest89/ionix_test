@@ -5,14 +5,21 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import com.google.android.material.textfield.TextInputEditText
 import com.moizest89.ionix_test.R
+import com.moizest89.ionix_test.domain.Item
 import com.moizest89.ionix_test.framework.setMask
 import com.moizest89.ionix_test.presentation.dialog.ProgressDialog
 import kotlinx.android.synthetic.main.activity_main.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class MainActivity : AppCompatActivity() , IMainView{
+
+
+    private val mainViewModel : MainViewModel by viewModel()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -40,9 +47,53 @@ class MainActivity : AppCompatActivity() , IMainView{
     }
 
     override fun searchRutInformation(rutNumber: String) {
-        
+
+        this.mainViewModel.searchRutInformation( rutNumber ).observe( this , Observer { liveData ->
+            liveData.onSuccess {
+                ProgressDialog.hide()
+                it.result?.let {result ->
+                    if( result.items.isNullOrEmpty() && result.items.size >= 2){
+                        showSandboxItemInformation( result.items[1] )
+                    }else{
+                        showSandboxItemInformation( null )
+                    }
+                }?:run { showSandboxItemInformation( null ) }
+
+            }
+            liveData.onLoading {
+                ProgressDialog.show( this@MainActivity )
+            }
+            liveData.onFailure {
+                ProgressDialog.hide()
+                showErrorMessage( it )
+            }
+        })
     }
 
+    override fun showSandboxItemInformation( item: Item? ) {
+
+        val message = item?.let {
+                    "Nombre: ${it.name}\n" +
+                    "Email: ${it.detail?.email}\n" +
+                    "Reléfono: ${it.detail?.phoneNumber}"
+        }?:run{
+            "No hay informacion por mostrar"
+        }
+
+        AlertDialog.Builder( this )
+            .setMessage( message )
+            .setPositiveButton( android.R.string.ok){ _ , _ ->
+
+            }.create().show()
+    }
+
+    override fun showErrorMessage(error: Throwable? ) {
+        AlertDialog.Builder( this )
+            .setMessage( error?.message )
+            .setPositiveButton( android.R.string.ok){ _ , _ ->
+
+            }.create().show()
+    }
 
 
     companion object{
