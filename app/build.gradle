@@ -49,6 +49,11 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:$rootProject.ext.RETROFIT_VERSION"
     implementation "com.google.code.gson:gson:$rootProject.ext.GSON"
 
+    implementation "org.koin:koin-android:$rootProject.ext.KOIN_VERSION"
+// use org.koin:koin-android-viewmodel instead for non-androidx projects!
+    implementation "org.koin:koin-androidx-viewmodel:$rootProject.ext.KOIN_VERSION"
+    implementation "org.koin:koin-core:$rootProject.ext.KOIN_VERSION"
+
     //Testing
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'com.google.android.material:material:1.1.0'
